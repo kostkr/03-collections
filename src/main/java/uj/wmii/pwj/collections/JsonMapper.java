@@ -21,7 +21,7 @@ public interface JsonMapper {
                 if( value == null ){
                     return "";
                 }else if(value instanceof String){
-                    return "\"" + value + "\"";
+                    return "\"" + String.join("\\\"", value.toString().split("\"")) + "\"";
                 }else if(value instanceof Number || value instanceof Boolean){
                     return value.toString();
                 }else if(value instanceof Map){
